@@ -1,0 +1,1094 @@
+    Sorting Arthmetic Computation Problem
+ UC1:-Write program to take three inputs-a,b&c
+ UC2:-Compute a+b*c
+ UC3:-Compute a*b+c
+ UC4:-Compute c+a/b
+ UC5:-Compute a%b+c
+ UC6:-Store the result in a dictionary for every compution
+ UC7:-Read the values from the dictionary into the array
+ UC8:-Sort theresult to show the compution result in the Descending order
+ UC9:-Sort theresult to show the compution result in the ascending order
+ -----------------------------------------------------------------------------------------------
+#!/bin/bash -x
+read -p "enter the number: " a
+read -p "enter the number: " b
+read -p "enter the number: " c
+uc1=$((( $a + $b ) * $c ))
+uc2=$((( $a * $b ) + $c ))
+uc3=$((( $c + $a ) / $b ))
+uc4=$(( $a % ( $b + $c )))
+declare -A value
+value[num1]="$uc1"
+value[num2]="$uc2"
+value[num3]="$uc3"
+value[num4]="$uc4"
+ echo " values are " ${value[@]}
+ echo " values are " ${!value[@]}
+ echo " values are " ${#value[@]}
+
+array=(${value[@]})
+echo " array values are " ${array[@]}
+echo ${array[*]}
+for(( i=0; i<5; i++ ))
+do
+  for(( j=0; j<10-i-1; j++ ))
+  do
+    if [[ ${array[j]} -gt ${array[j+1]} ]]
+    then
+       temp=${array[j]}
+       array[$j]=${array[$((j+1))]}
+      array[$((j+1))]=$temp
+    fi
+done
+done
+echo " array in elements Ascending order: " ${array[@]}
+
+for(( i=${#array[@]}-1;i>=0;i-- ))
+do
+   rev="$rev ${array[i]}";
+done
+ echo " array elements in descending order " $rev;
+
+OUTPUT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ ./sortingusecase.sh
++ read -p 'enter the number: ' a
+enter the number: 8
++ read -p 'enter the number: ' b
+enter the number: 5
++ read -p 'enter the number: ' c
+enter the number: 4
++ uc1=52
++ uc2=44
++ uc3=2
++ uc4=8
++ declare -A value
++ value[num1]=52
++ value[num2]=44
++ value[num3]=2
++ value[num4]=8
++ echo ' values are ' 52 44 2 8
+ values are  52 44 2 8
++ echo ' values are ' num1 num2 num3 num4
+ values are  num1 num2 num3 num4
++ echo ' values are ' 4
+ values are  4
++ array=(${value[@]})
++ echo ' array values are ' 52 44 2 8
+ array values are  52 44 2 8
++ echo 52 44 2 8
+52 44 2 8
++ (( i=0 ))
++ (( i<5 ))
++ (( j=0 ))
++ (( j<10-i-1 ))
++ [[ 52 -gt 44 ]]
++ temp=52
++ array[$j]=44
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt 2 ]]
++ temp=52
++ array[$j]=2
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt 8 ]]
++ temp=52
++ array[$j]=8
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt '' ]]
++ temp=52
++ array[$j]=
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt '' ]]
++ temp=52
++ array[$j]=
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt '' ]]
++ temp=52
++ array[$j]=
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt '' ]]
++ temp=52
++ array[$j]=
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt '' ]]
++ temp=52
++ array[$j]=
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 52 -gt '' ]]
++ temp=52
++ array[$j]=
++ array[$((j+1))]=52
++ (( j++  ))
++ (( j<10-i-1 ))
++ (( i++  ))
++ (( i<5 ))
++ (( j=0 ))
++ (( j<10-i-1 ))
++ [[ 44 -gt 2 ]]
++ temp=44
++ array[$j]=2
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt 8 ]]
++ temp=44
++ array[$j]=8
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt '' ]]
++ temp=44
++ array[$j]=
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt '' ]]
++ temp=44
++ array[$j]=
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt '' ]]
++ temp=44
++ array[$j]=
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt '' ]]
++ temp=44
++ array[$j]=
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt '' ]]
++ temp=44
++ array[$j]=
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 44 -gt '' ]]
++ temp=44
++ array[$j]=
++ array[$((j+1))]=44
++ (( j++  ))
++ (( j<10-i-1 ))
++ (( i++  ))
++ (( i<5 ))
++ (( j=0 ))
++ (( j<10-i-1 ))
++ [[ 2 -gt 8 ]]
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 8 -gt '' ]]
++ temp=8
++ array[$j]=
++ array[$((j+1))]=8
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 8 -gt '' ]]
++ temp=8
++ array[$j]=
++ array[$((j+1))]=8
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 8 -gt '' ]]
++ temp=8
++ array[$j]=
++ array[$((j+1))]=8
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 8 -gt '' ]]
++ temp=8
++ array[$j]=
++ array[$((j+1))]=8
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 8 -gt '' ]]
++ temp=8
++ array[$j]=
++ array[$((j+1))]=8
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 8 -gt '' ]]
++ temp=8
++ array[$j]=
++ array[$((j+1))]=8
++ (( j++  ))
++ (( j<10-i-1 ))
++ (( i++  ))
++ (( i<5 ))
++ (( j=0 ))
++ (( j<10-i-1 ))
++ [[ 2 -gt '' ]]
++ temp=2
++ array[$j]=
++ array[$((j+1))]=2
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 2 -gt '' ]]
++ temp=2
++ array[$j]=
++ array[$((j+1))]=2
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 2 -gt '' ]]
++ temp=2
++ array[$j]=
++ array[$((j+1))]=2
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 2 -gt '' ]]
++ temp=2
++ array[$j]=
++ array[$((j+1))]=2
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 2 -gt '' ]]
++ temp=2
++ array[$j]=
++ array[$((j+1))]=2
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ 2 -gt '' ]]
++ temp=2
++ array[$j]=
++ array[$((j+1))]=2
++ (( j++  ))
++ (( j<10-i-1 ))
++ (( i++  ))
++ (( i<5 ))
++ (( j=0 ))
++ (( j<10-i-1 ))
++ [[ '' -gt '' ]]
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ '' -gt '' ]]
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ '' -gt '' ]]
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ '' -gt '' ]]
++ (( j++  ))
++ (( j<10-i-1 ))
++ [[ '' -gt '' ]]
++ (( j++  ))
++ (( j<10-i-1 ))
++ (( i++  ))
++ (( i<5 ))
++ echo ' array in elements Ascending order: ' 2 8 44 52
+ array in elements Ascending order:  2 8 44 52
++ (( i=10-1 ))
++ (( i>=0 ))
++ rev=' 52'
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44'
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8'
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2'
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2 '
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2  '
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2   '
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2    '
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2     '
++ (( i--  ))
++ (( i>=0 ))
++ rev=' 52 44 8 2      '
++ (( i--  ))
++ (( i>=0 ))
++ echo ' array elements in descending order ' 52 44 8 2
+ array elements in descending order  52 44 8 2
+===============================================================================  
+      FlipCoin Simulation Problem
+ UC1:-As a simpulator start with flipping a coin to display Heads or Tails as winner
+   ->use((RANDOM)) to find heads or tails
+   ->Name the flie flipcoinsimulator.sh
+ UC2:-As a simulator,loop through multiple times of flipping a coin and show number of times head and tail has won
+ UC3:-Modify the earlier UC2 to continue till either of them have won 21 times.show if its a win or tie.if win the who won and by how much
+ UC4:-Extend UC3 to ensure if its tie then the game continues till the difference of minimum 2 points is a achieved
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash -x
+flipcoin=$(($RANDOM%2))
+ishead=1;
+istail=0;
+isheadcount=0;
+istailcount=0;
+while(( $isheadcount < 21 && $istailcount < 21 ))
+do
+    flipcoin=$(($RANDOM%2))
+  if [[ $flipcoin -eq $ishead ]]
+then
+  isheadcount=$(( isheadcount+1 ))
+echo " the winner is head " $isheadcount
+else
+   istailcount=$(( istailcount+1 ))
+echo " the winner is tail " $istailcount
+fi
+done
+
+if [[ $isheadcount == $istailcount ]]
+then
+   echo " head and tail is tie "
+   while(( ($headcount-$tailcount) -le 2 || ($tailcount-$headcount) -le 2 ))
+    do
+      flipcoin=$(($RANDOM%2))
+     if [[ $flipcoin -eq 1 ]]
+    then
+      echo "head"
+    else
+      echo "tail"
+    fi
+    done
+elif [[ $isheadcount > $istailcount ]]
+then
+  echo " head was winner " $isheadcount
+else
+echo " tail was winner " $istailcount
+fi
+
+OUTPUT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ ./flipcoinsimulator.sh
++ flipcoin=0
++ ishead=1
++ istail=0
++ isheadcount=0
++ istailcount=0
++ ((  0 < 21 && 0 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=1
++ echo ' the winner is tail ' 1
+ the winner is tail  1
++ ((  0 < 21 && 1 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=2
++ echo ' the winner is tail ' 2
+ the winner is tail  2
++ ((  0 < 21 && 2 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=3
++ echo ' the winner is tail ' 3
+ the winner is tail  3
++ ((  0 < 21 && 3 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=4
++ echo ' the winner is tail ' 4
+ the winner is tail  4
++ ((  0 < 21 && 4 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=1
++ echo ' the winner is head ' 1
+ the winner is head  1
++ ((  1 < 21 && 4 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=2
++ echo ' the winner is head ' 2
+ the winner is head  2
++ ((  2 < 21 && 4 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=3
++ echo ' the winner is head ' 3
+ the winner is head  3
++ ((  3 < 21 && 4 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=5
++ echo ' the winner is tail ' 5
+ the winner is tail  5
++ ((  3 < 21 && 5 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=4
++ echo ' the winner is head ' 4
+ the winner is head  4
++ ((  4 < 21 && 5 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=5
++ echo ' the winner is head ' 5
+ the winner is head  5
++ ((  5 < 21 && 5 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=6
++ echo ' the winner is tail ' 6
+ the winner is tail  6
++ ((  5 < 21 && 6 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=7
++ echo ' the winner is tail ' 7
+ the winner is tail  7
++ ((  5 < 21 && 7 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=8
++ echo ' the winner is tail ' 8
+ the winner is tail  8
++ ((  5 < 21 && 8 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=6
++ echo ' the winner is head ' 6
+ the winner is head  6
++ ((  6 < 21 && 8 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=7
++ echo ' the winner is head ' 7
+ the winner is head  7
++ ((  7 < 21 && 8 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=9
++ echo ' the winner is tail ' 9
+ the winner is tail  9
++ ((  7 < 21 && 9 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=10
++ echo ' the winner is tail ' 10
+ the winner is tail  10
++ ((  7 < 21 && 10 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=8
++ echo ' the winner is head ' 8
+ the winner is head  8
++ ((  8 < 21 && 10 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=9
++ echo ' the winner is head ' 9
+ the winner is head  9
++ ((  9 < 21 && 10 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=11
++ echo ' the winner is tail ' 11
+ the winner is tail  11
++ ((  9 < 21 && 11 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=10
++ echo ' the winner is head ' 10
+ the winner is head  10
++ ((  10 < 21 && 11 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=12
++ echo ' the winner is tail ' 12
+ the winner is tail  12
++ ((  10 < 21 && 12 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=11
++ echo ' the winner is head ' 11
+ the winner is head  11
++ ((  11 < 21 && 12 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=13
++ echo ' the winner is tail ' 13
+ the winner is tail  13
++ ((  11 < 21 && 13 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=14
++ echo ' the winner is tail ' 14
+ the winner is tail  14
++ ((  11 < 21 && 14 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=15
++ echo ' the winner is tail ' 15
+ the winner is tail  15
++ ((  11 < 21 && 15 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=12
++ echo ' the winner is head ' 12
+ the winner is head  12
++ ((  12 < 21 && 15 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=13
++ echo ' the winner is head ' 13
+ the winner is head  13
++ ((  13 < 21 && 15 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=14
++ echo ' the winner is head ' 14
+ the winner is head  14
++ ((  14 < 21 && 15 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=16
++ echo ' the winner is tail ' 16
+ the winner is tail  16
++ ((  14 < 21 && 16 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=15
++ echo ' the winner is head ' 15
+ the winner is head  15
++ ((  15 < 21 && 16 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=17
++ echo ' the winner is tail ' 17
+ the winner is tail  17
++ ((  15 < 21 && 17 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=16
++ echo ' the winner is head ' 16
+ the winner is head  16
++ ((  16 < 21 && 17 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=17
++ echo ' the winner is head ' 17
+ the winner is head  17
++ ((  17 < 21 && 17 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=18
++ echo ' the winner is head ' 18
+ the winner is head  18
++ ((  18 < 21 && 17 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=19
++ echo ' the winner is head ' 19
+ the winner is head  19
++ ((  19 < 21 && 17 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=20
++ echo ' the winner is head ' 20
+ the winner is head  20
++ ((  20 < 21 && 17 < 21  ))
++ flipcoin=0
++ [[ 0 -eq 1 ]]
++ istailcount=18
++ echo ' the winner is tail ' 18
+ the winner is tail  18
++ ((  20 < 21 && 18 < 21  ))
++ flipcoin=1
++ [[ 1 -eq 1 ]]
++ isheadcount=21
++ echo ' the winner is head ' 21
+ the winner is head  21
++ ((  21 < 21 && 18 < 21  ))
++ [[ 21 == 18 ]]
++ [[ 21 > 18 ]]
++ echo ' head was winner ' 21
+ head was winner  21
+
+====================================================================
+     Flipcoin Combination Problem
+ UC1:-As a Simulator start with flipping a coin to display heads or tails
+ ->use((RANDOM))to find the heads or tails
+ ->name the file flipcoincoincombination.sh
+ UC2:-As a simulator,loop through multiple times of flipping a coin store the singlet
+     combination in a dictionary.finally determine the percentage of the singlet combination
+  ->singlet shows heads or tails
+ UC3:-As a simulator,loop to creat a doublet combination.store the doublet combination
+      combination as well as the percentage
+   ->doublet combinations are HH,HT,TH,TT
+ UC4:-AS a simulator,do the same for triplet combination
+ UC5:-AS a simulator,sort the singlet,doublet and triplet combination and 
+     show the winning combimnation.
+----------------------------------------------------------------------------------------
+#!/bin/bash
+
+for((i=0;i<20;i++))
+do
+        b=$a
+        a=$coin
+                coin=$(( $RANDOM%2 ))
+                if [[ $coin == 1 ]]
+                        then
+                        ((hcount++))
+                                echo -n "HEAD  "
+                                if [[ $a == 1 ]]
+                                then
+                                                ((hhcount++))
+                                                        if [[ $b == 1 ]]
+                                                        then
+                                                                        ((hhhcount++))
+                                                        else
+                                                                        ((hhtcount++))
+                                                        fi
+                                else
+                                                ((htcount++))
+                                                        if [[ $b == 1 ]]
+                                                        then
+                                                                        ((hthcount++))
+                                                        else
+                                                                        ((httcount++))
+                                                        fi
+                                fi
+                else
+                        ((tcount++))
+                                echo -n "TAIL  "
+                                if [[ $a == 1 ]]
+                                then
+                                                ((thcount++))
+                                                if [[ $b == 1 ]]
+                                                        then
+                                                                        ((thhcount++))
+                                                        else
+                                                                        ((thtcount++))
+                                                        fi
+                                else
+                                                ((ttcount++))
+                                                if [[ $b == 1 ]]
+                                                        then
+                                                                        ((tthcount++))
+                                                        else
+                                                                        ((tttcount++))
+                                                        fi
+                                fi
+fi
+
+done
+echo " "
+echo "H percent :" `echo $hcount  | awk '{print ($1/20)*100}' ` "% "
+echo "T percent :" `echo $tcount  | awk '{print ($1/20)*100}' ` "% "
+echo -n "Result : "
+if [[ $hcount -gt $tcount ]]
+then
+                echo "HEAD WON"
+else
+                echo "TAIL WON"
+fi
+echo "HH percent :" `echo $hhcount  | awk '{print ($1/20)*100}' ` "% "
+echo "HT percent :" `echo $htcount  | awk '{print ($1/20)*100}' ` "% "
+echo "TH percent :" `echo $thcount  | awk '{print ($1/20)*100}' ` "% "
+echo "TT percent :" `echo $ttcount  | awk '{print ($1/20)*100}' ` "% "
+echo -n "Result : "
+if [[ $hhcount > $htcount && $hhcount > $thcount && $hhcount > $ttcount ]]
+        then
+                        echo " HEAD HEAD WON "
+        elif [[ $htcount > $hhcount && $htcount > $thcount && $htcount > $ttcount ]]
+        then
+                        echo " HEAD TAIL WON "
+        elif [[ $thcount > $hhcount && $thcount > $htcount && $thcount > $ttcount ]]
+        then
+                        echo " TAIL HEAD WON "
+        else
+                        echo "TAIL TAIL WON"
+fiecho "HHH percent :" `echo $hhhcount  | awk '{print ($1/20)*100}' ` "% "
+echo "HHT percent :" `echo $hhtcount  | awk '{print ($1/20)*100}' ` "% "
+echo "HTH percent :" `echo $hthcount  | awk '{print ($1/20)*100}' ` "% "
+echo "HTT percent :" `echo $httcount  | awk '{print ($1/20)*100}' ` "% "
+echo "THH percent :" `echo $thhcount  | awk '{print ($1/20)*100}' ` "% "
+echo "THT percent :" `echo $thtcount  | awk '{print ($1/20)*100}' ` "% "
+echo "TTH percent :" `echo $tthcount  | awk '{print ($1/20)*100}' ` "% "
+echo "TTT percent :" `echo $tttcount  | awk '{print ($1/20)*100}' ` "% "
+echo -n "Result : "
+if [[ $hhhcount > $hhtcount && $hhhcount > $hthcount && $hhhcount > $httcount && $hhhcount > $thhcount && $hhhcount > $thtcount && $hhhcount > $tthcount && $hhhcount > $tttcount ]]
+                then
+                                echo " HEAD HEAD HEAD WON "
+
+        elif [[ $hhtcount > $hhhcount && $hhtcount > $hthcount && $hhtcount > $httcount && $hhtcount > $thhcount && $hhtcount > $thtcount && $hhtcount > $tthcount && $hhtcount > $tttcount ]]
+                then
+                                echo " HEAD HEAD TAIL WON "
+        elif [[ $hthcount > $hhtcount && $hthcount > $hhhcount && $hthcount > $httcount && $hthcount > $thhcount && $hthcount > $thtcount && $hthcount > $tthcount && $hthcount > $tttcount ]]
+                then
+                                echo " HEAD TAIL HEAD WON "
+        elif [[ $httcount > $hhtcount && $httcount > $hthcount && $httcount > $hhhcount && $httcount > $thhcount && $httcount > $thtcount && $httcount > $tthcount && $httcount > $tttcount ]]
+                then
+                                echo " HEAD TAIL TAIL WON "
+        elif [[ $thhcount > $hhtcount && $thhcount > $hthcount && $thhcount > $httcount && $thhcount > $hhhcount && $thhcount > $thtcount && $thhcount > $tthcount && $thhcount > $tttcount ]]
+                then
+                                echo " TAIL HEAD HEAD WON "
+        elif [[ $thtcount > $hhtcount && $thtcount > $hthcount && $thtcount > $httcount && $thtcount > $thhcount && $thtcount > $hhtcount && $thtcount > $tthcount && $thtcount > $tttcount ]]
+                then
+                                echo " TAIL HEAD TAIL WON "
+        elif [[ $tthcount > $hhtcount && $tthcount > $hthcount && $tthcount > $httcount && $tthcount > $thhcount && $tthcount > $thtcount && $tthcount > $hhhcount && $tthcount > $tttcount ]]
+                then
+                                echo " TAIL TAIL HEAD WON "
+        elif [[ $tttcount > $hhtcount && $tttcount > $hthcount && $tttcount > $httcount && $tttcount > $thhcount && $tttcount > $thtcount && $tttcount > $tthcount && $tttcount > $hhhcount ]]
+                then
+                                echo " TAIL TAIL TAIL WON "
+fi
+ 
+OUTPUT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ ./flipcoincombination.sh
++ (( i=0 ))
++ (( i<20 ))
++ b=
++ a=
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ '' == 1 ]]
++ (( ttcount++ ))
++ [[ '' == 1 ]]
++ (( tttcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=
++ a=0
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 0 == 1 ]]
++ (( ttcount++ ))
++ [[ '' == 1 ]]
++ (( tttcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=0
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 0 == 1 ]]
++ (( ttcount++ ))
++ [[ 0 == 1 ]]
++ (( tttcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=0
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 0 == 1 ]]
++ (( ttcount++ ))
++ [[ 0 == 1 ]]
++ (( tttcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=0
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 0 == 1 ]]
++ (( ttcount++ ))
++ [[ 0 == 1 ]]
++ (( tttcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=0
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 0 == 1 ]]
++ (( htcount++ ))
++ [[ 0 == 1 ]]
++ (( httcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=1
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 1 == 1 ]]
++ (( thcount++ ))
++ [[ 0 == 1 ]]
++ (( thtcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=0
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 0 == 1 ]]
++ (( htcount++ ))
++ [[ 1 == 1 ]]
++ (( hthcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=1
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 1 == 1 ]]
++ (( hhcount++ ))
++ [[ 0 == 1 ]]
++ (( hhtcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=1
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 1 == 1 ]]
++ (( thcount++ ))
++ [[ 1 == 1 ]]
++ (( thhcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=0
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 0 == 1 ]]
++ (( htcount++ ))
++ [[ 1 == 1 ]]
++ (( hthcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=1
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 1 == 1 ]]
++ (( hhcount++ ))
++ [[ 0 == 1 ]]
++ (( hhtcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=1
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 1 == 1 ]]
++ (( hhcount++ ))
++ [[ 1 == 1 ]]
++ (( hhhcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=1
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 1 == 1 ]]
++ (( thcount++ ))
++ [[ 1 == 1 ]]
++ (( thhcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=0
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 0 == 1 ]]
++ (( htcount++ ))
++ [[ 1 == 1 ]]
++ (( hthcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=1
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 1 == 1 ]]
++ (( thcount++ ))
++ [[ 0 == 1 ]]
++ (( thtcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=0
++ coin=1
++ [[ 1 == 1 ]]
++ (( hcount++ ))
++ echo -n 'HEAD  '
+HEAD  + [[ 0 == 1 ]]
++ (( htcount++ ))
++ [[ 1 == 1 ]]
++ (( hthcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=1
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 1 == 1 ]]
++ (( thcount++ ))
++ [[ 0 == 1 ]]
++ (( thtcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=1
++ a=0
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 0 == 1 ]]
++ (( ttcount++ ))
++ [[ 1 == 1 ]]
++ (( tthcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ b=0
++ a=0
++ coin=0
++ [[ 0 == 1 ]]
++ (( tcount++ ))
++ echo -n 'TAIL  '
+TAIL  + [[ 0 == 1 ]]
++ (( ttcount++ ))
++ [[ 0 == 1 ]]
++ (( tttcount++ ))
++ (( i++ ))
++ (( i<20 ))
++ echo ' '
+
+++ echo 8
+++ awk '{print ($1/20)*100}'
++ echo 'H percent :' 40 '% '
+H percent : 40 %
+++ echo 12
+++ awk '{print ($1/20)*100}'
++ echo 'T percent :' 60 '% '
+T percent : 60 %
++ echo -n 'Result : '
+Result : + [[ 8 -gt 12 ]]
++ echo 'TAIL WON'
+TAIL WON
+++ echo 3
+++ awk '{print ($1/20)*100}'
++ echo 'HH percent :' 15 '% '
+HH percent : 15 %
+++ echo 5
+++ awk '{print ($1/20)*100}'
++ echo 'HT percent :' 25 '% '
+HT percent : 25 %
+++ echo 5
+++ awk '{print ($1/20)*100}'
++ echo 'TH percent :' 25 '% '
+TH percent : 25 %
+++ echo 7
+++ awk '{print ($1/20)*100}'
++ echo 'TT percent :' 35 '% '
+TT percent : 35 %
++ echo -n 'Result : '
+Result : + [[ 3 > 5 ]]
++ [[ 5 > 3 ]]
++ [[ 5 > 5 ]]
++ [[ 5 > 3 ]]
++ [[ 5 > 5 ]]
++ echo 'TAIL TAIL WON'
+TAIL TAIL WON
+++ echo 1
+++ awk '{print ($1/20)*100}'
++ echo 'HHH percent :' 5 '% '
+HHH percent : 5 %
+++ echo 2
+++ awk '{print ($1/20)*100}'
++ echo 'HHT percent :' 10 '% '
+HHT percent : 10 %
+++ echo 4
+++ awk '{print ($1/20)*100}'
++ echo 'HTH percent :' 20 '% '
+HTH percent : 20 %
+++ echo 1
+++ awk '{print ($1/20)*100}'
++ echo 'HTT percent :' 5 '% '
+HTT percent : 5 %
+++ echo 2
+++ awk '{print ($1/20)*100}'
++ echo 'THH percent :' 10 '% '
+THH percent : 10 %
+++ echo 3
+++ awk '{print ($1/20)*100}'
++ echo 'THT percent :' 15 '% '
+THT percent : 15 %
+++ echo 1
+++ awk '{print ($1/20)*100}'
++ echo 'TTH percent :' 5 '% '
+TTH percent : 5 %
+++ echo 6
+++ awk '{print ($1/20)*100}'
++ echo 'TTT percent :' 30 '% '
+TTT percent : 30 %
++ echo -n 'Result : '
+Result : + [[ 1 > 2 ]]
++ [[ 2 > 1 ]]
++ [[ 2 > 4 ]]
++ [[ 4 > 2 ]]
++ [[ 4 > 1 ]]
++ [[ 4 > 1 ]]
++ [[ 4 > 2 ]]
++ [[ 4 > 3 ]]
++ [[ 4 > 1 ]]
++ [[ 4 > 6 ]]
++ [[ 1 > 2 ]]
++ [[ 2 > 2 ]]
++ [[ 3 > 2 ]]
++ [[ 3 > 4 ]]
++ [[ 1 > 2 ]]
++ [[ 6 > 2 ]]
++ [[ 6 > 4 ]]
++ [[ 6 > 1 ]]
++ [[ 6 > 2 ]]
++ [[ 6 > 3 ]]
++ [[ 6 > 1 ]]
++ [[ 6 > 1 ]]
++ echo ' TAIL TAIL TAIL WON '
+ TAIL TAIL TAIL WON
+===========================================================

@@ -1,0 +1,250 @@
+1.get user info from/etc/passwd and changeownership of user's home directory(sekect userid higher than 1000
+)
+a.view /ete/passwd file
+b.print the field from /etc/passwd file
+c.print all userids>1000
+e.use command substitution to get user list and home directory
+f.change ownership of above home directory with user which is retrive above
+g.iterate above steps for all userid>1000
+------------------------------------------------------------------------
+cat passwd.txt
+cat passwd.txt  | awk -F ";" {print$1}
+cat passwd.txt | awk -F ":" {
+  if($4>=1000)
+{
+  {print $0}
+}
+}
+
+
+=============================================================
+2.move files from one folder to the respective folders.
+
+E.g:current folder have files abc.txt,def.txt,ghi.txt,jkl.txt
+you have to move these files to the folder like abc.txt=>abc/,def.txt=>def/...
+Expected outcome-
+      abc/abc.txt
+      def/def.txt
+      ghi/ghi.txt
+      jkl/jkl.txt
+
+a.create files incurrent dirrectory or any temporary directory-abc.txt,def.txt,ghi.txt,jkl.txt
+b.print list of files to move
+c.segregate basename and extensuion of a file
+d.create folder using basename
+e.move file to newly created folder
+f.Iterate above steps for all files
+---------------------------------------------
+$ touch abc.txt def.txt ghi.txt
+$ ls *.txt
+$ for file in ls *.txt
+do
+  echo $file
+done
+o/p:::::abc.txt ,def.txt,ghi.txt,jkl.txt
+$ for file in ls *.txt
+do
+ foldername=echo $file | awk -F. '{print$1}'
+ echo $foldername
+done
+o/p:::::::abc,def,ghi,jkl
+$ for file in ls *.txt
+do
+ foldername=echo $file | awk -F. '{print$1}'
+$for
+do 
+   foldername
+   rm -R $foldername;
+   mkdir $foldername;
+   cp $file $foldername;
+done
+======================================================================
+3.Append current date to all log files name which has extension .log.1 from folder
+E.g:::original file -access.log.1
+  new updated file name-access-20102019/log
+a.create files with the name abc.log.1,def.log.1,ghi.log.1,jkl.log.1,mno.log.1
+b.print list of files to rename.
+c.segregate basename and extension of a file
+d.print date command to show in ddmmyy
+e.Append Date to the log file name
+f.iterate above steps for all files which has extension.log.1
+-----------------------------------------------
+$ touch abc.log.1,def.log.1,ghi.log.1,jkl.log.1,mno.log.1
+$ ls *.log.1
+$ date = $ (date + %d %m %y)
+for file in ls *.log.1
+do
+name=echo $file | awk F $1
+rename=echo $file | awk F $2
+mv file$1 to $2
+done
+===================================================
+4.Archive the files from/var/log floder which have modified 7 days ago and move it to your backup folder
+a.identify files which have modified time greater than 7days
+b.move these files to the backup folder
+----------------------------------------
+$ ls
+$ mkdir backup/
+#!/bin/bash -x
+mkdir backup;
+date = $( date +%d %m %y)
+foldername date;
+if [ $foldername date -ge $date]
+ then
+ mv $foldername $backup
+fi
+
+
+===================================================
+5.check if a folder exists or not .if its not present,create it
+
+a.test if particular folder exista in current directory or not
+b.if it's doesn't exists then create it else print"folder already exist"
+---------------------------------------------------------
+$ls .
+$mkdir flodername 
+#!/bin/bash -x
+read "enter flodername::"flodername
+if [ -d $foldername ]
+  then
+    echo $folder already exists;
+fi
+mkdir temp;
+==================================================
+6.Execute command "hello" and "Is" and check its execution status and
+print whether command executed successful or not.
+
+a.Execute "hello" command at command prompt
+b. Check execution status of "hello" command
+c. Execute "Is" command at command prompt
+d. Check execution status of "Is" command 
+-----------------------------------------------------------------
+command not found
+============================================================
+7. Set environment usersecret="dH34xJaa23" if its already not set
+
+a.Check whether environment variable usersecret assigned any value or not
+b.Print error if usersecret already set
+c.Set environment variable usersecret to given value.
+-----------------------------------------------------------------------
+$ printenv usersecret
+$ export usersecret
+$ export usersecret=$(echo "dH34xJaa23")
+$ printenv usersecret
+dH34xJaa23
+========================================================================= 
+8.find a word "systemd" from all log files in the folder/var/log and print number of occurrence more than 0 against each file.
+a.use linux command to search word and print occurrence
+-------------------------------------------------
+$ find systemd *.log
+$ find systemd *.log | awk '{print$0}'
+
+===============================================
+
+9.Create process list table displays process id, parent process id,
+command name, % of memory consumption, % of cpu utilization 
+------------------------------------------------------------
+$ ps -a
+$ ps -a | awk '{print $1""$8}'
+====================================================================
+10. Print last 4 frequently access urls count in sorted order from
+/var/log/httpd/access.log
+
+a.View /var/log/httpd/access.log
+b.Print field which has url data.
+c.sort extracted urls and count it
+d.Print 4 unique urls 
+--------------------------------------------------------------------
+$cat access.log
+$cat access.log | awk '{print $7}' | uniq -c | sort |tail -4
+=======================================================================
+11.print list of last 4 frequently access unique urls at particular hours from /var/log/httpd/access.log
+
+a.view access.log without opening it using editor.
+b.print urls which has given timestamp
+c.sort executed urls and count it
+d.print 4 unique urls
+------------------------------------------------
+$ cat access.log
+$cat access.log |awk '{if($4=="timestamp") print($7)}' | uniq -c |sort -nr | tail -4
+
+=================================================================
+12.Print list of web response code count in the unique sorted order at specific hours
+
+a.View access.log without opening it using editor.
+b.Print web response code field which has given timestamp
+c.Sort extracted response code and count it
+d.Print 4 unique response code count
+---------------------------------------------------------------------------
+$cat access.log
+$ cat access.log | awk '{print $2}' | sort -nr | uniq -4 |
+======================================================================== 
+13.print list of last 10 unique sorted client IP from/var/log/httpd/access.log
+a.view access log without opening it using editor
+b.print client ip field from access log
+c.sort extracted client IP and count it
+d.print 4 unique client ips
+----------------------------------------------------------
+$ cat access.log | awk '{print $1}' | sort | uniq -c |tail
+$ cat access.log| awk '{print $1}' | sort | uniq -c |tail -2
+==================================================
+14...DATA analysis /manipulation (Awk)
+$ cat data.csv
+i.cat data.csv | awk '{if ($4 > 10000) print ($2" "$7)}'
+
+ii.cat data.csv  | awk '{if($3=="CAPTAIN") print($0)}
+iii.cat data.csv | awk '{if(7000<$5 && $5<10000) print($3" "$5)}'
+iv.cat data.csv | awk '{(sum+=$4)} END{print (sum/NR)}'
+==================================================
+15.Difference between original file and the updated file.
+  
+a.$ mkdir original
+  $ mkdir updated
+$ nano original-file.sh
+$ nano upadte-file.sh
+$ mv $original-file.sh $original
+$ mv $upadte-file.sh $upadte
+$ diff original/original-file.sh update/update-file.sh
+$ mkdir original-backup
+$ mv original/original-file.sh  original-backup
+$ diff updated original-backup
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
