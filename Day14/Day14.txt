@@ -1,0 +1,131 @@
+   Registration Form
+1.First name
+#!/bin/bash -x
+shopt -s extglob
+echo " enter the firstname: "
+read firstname
+pat="^[A-Z]{1}[a-zA-Z]{2,}$"
+if [[ $firstname =~ $pat ]]
+then
+echo "valid"
+else
+echo "invalid"
+fi
+----------------------------------------------------
+OUTPUT:::::::::::
+$ ./firstname.sh
++ shopt -s extglob
++ echo ' enter the firstname: '
+ enter the firstname:
++ read firstname
+Puppy
++ pat='^[A-Z]{1}[a-zA-Z]{2,}$'
++ [[ Puppy =~ ^[A-Z]{1}[a-zA-Z]{2,}$ ]]
++ echo valid
+valid
+$ ./firstname.sh
++ shopt -s extglob
++ echo ' enter the firstname: '
+ enter the firstname:
++ read firstname
+aNMK
++ pat='^[A-Z]{1}[a-zA-Z]{2,}$'
++ [[ aNMK =~ ^[A-Z]{1}[a-zA-Z]{2,}$ ]]
++ echo invalid
+invalid
+==========================================================================
+2.LastName
+#!/bin/bash -x
+shopt -s extglob
+echo " enter the lastname: "
+read lastname
+pat="^[A-Z]{1}[a-zA-Z]{2,}$"
+if [[ $lastname =~ $pat ]]
+then
+echo "valid"
+else
+echo "invalid"
+fi
+------------------------------------------------------------------------------
+OUTPUT::::::::::::::::::::::::::::::::::::::
+$ ./firstname.sh
++ shopt -s extglob
++ echo ' enter the lastname: '
+ enter the lastname:
++ read lastname
+Puppy
++ pat='^[A-Z]{1}[a-zA-Z]{2,}$'
++ [[ Puppy =~ ^[A-Z]{1}[a-zA-Z]{2,}$ ]]
++ echo valid
+valid
+$ ./firstname.sh
++ shopt -s extglob
++ echo ' enter the lastname: '
+ enter the lastname:
++ read lastname
+P234668@
++ pat='^[A-Z]{1}[a-zA-Z]{2,}$'
++ [[ P234668@ =~ ^[A-Z]{1}[a-zA-Z]{2,}$ ]]
++ echo invalid
+invalid
+==============================================================================================
+3.EMAIL
+#!/bin/bash -x
+shopt -s extglob
+echo " please enter a postal code "
+read pin
+pat="^[a-zA-Z0-9]+([-._+#&][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,3})?$"
+
+if [[ $pin =~ $pat ]]
+then
+echo yes
+else
+echo no
+fi
+OUTPUT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ ./email1.sh
++ shopt -s extglob
++ echo ' please enter a postal code '
+ please enter a postal code
++ read pin
+ABC+123@gmail.com.in
++ pat='^[a-zA-Z0-9]+([-._+#&][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,3})?$'
++ [[ ABC+123@gmail.com.in =~ ^[a-zA-Z0-9]+([-._+#&][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,3})?$ ]]
++ echo yes
+yes
+$ ./email1.sh
++ shopt -s extglob
++ echo ' please enter a postal code '
+ please enter a postal code
++ read pin
+abc()*@gmail.com
++ pat='^[a-zA-Z0-9]+([-._+#&][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,3})?$'
++ [[ abc()*@gmail.com =~ ^[a-zA-Z0-9]+([-._+#&][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,3})?$ ]]
++ echo no
+no
+================================================================================================================
+5.Password
+#!/bin/bash -x
+shopt -s extglob
+echo " enter a name: "
+read name
+pat="^([::upper::][0-9][@!$#%&*][a-zA-Z0-9@!#$%&*]){8,8}"
+if [[ $name =~ $pat ]]
+then
+echo "valid name"
+else
+echo "invalid name"
+fi
+OUTPUT:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ ./password.sh
++ shopt -s extglob
++ echo ' enter a name: '
+ enter a name:
++ read name
+Puppy@121
++ pat='^([::upper::][0-9][@!0%&*][a-zA-Z0-9@!#$%&*]){8,8}'
++ [[ Puppy@121 =~ ^([::upper::][0-9][@!0%&*][a-zA-Z0-9@!#$%&*]){8,8} ]]
++ echo 'invalid name'
+invalid name
+=======================================================================================================================
+
