@@ -1,0 +1,109 @@
+   EmployeeeWageComputationUsing MethodsandVariables
+1 
+public class Empwageusecase
+{
+
+ static final int IS_FULL_TIME=1;
+     static final int IS_PART_TIME=2;
+    int EMP_RATE_PER_HOUR=20;
+   int NUM_OF_WORKING_DAYS=20;
+   int MAX_HRS_IN_MONTH=100;
+    int empHrs=0,totalEmpHrs=0;
+    int empWage=0,totalEmpWage=0,totalworkingdays=0;
+public int computeempwage(){
+
+while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalworkingdays<NUM_OF_WORKING_DAYS)
+{
+totalworkingdays++;
+
+   double empcheck1=Math.floor(Math.random()*10)%3;
+    switch((int)empcheck1)
+{
+      case IS_FULL_TIME:
+        empHrs=8;
+         break;
+       case IS_PART_TIME:
+        empHrs=4;
+        break;
+    default:
+    empHrs=0;
+}
+   totalEmpHrs+=empHrs;
+   System.out.println("employee hours are:"+empHrs);
+    empWage=empHrs*EMP_RATE_PER_HOUR;
+    totalEmpWage=totalEmpWage+empWage;
+
+    System.out.println("Employee wage per day:"+empWage);
+     }
+    System.out.println("Total Employee wage:"+totalEmpWage);
+  return totalEmpWage;
+}
+public static void main(String[] args)
+{
+System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
+
+  double empcheck=Math.floor(Math.random()*10)%2;
+  if(empcheck == 1)
+   {
+   System.out.println("employee is present");
+  Empwageusecase obj=new Empwageusecase();
+obj.computeempwage();
+    }
+else
+{
+System.out.println("employee is absent");
+}
+
+   }
+  }
+OUTPUT:::::::::::::::::::::::::::::::::::::::::
+$ java empwagemethodusecase.java
+Welcome to Employee Wage Computation Program on Master Branch
+employee is present
+employee hours are:8
+Employee wage per day:160
+employee hours are:8
+Employee wage per day:160
+employee hours are:0
+Employee wage per day:0
+employee hours are:0
+Employee wage per day:0
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:8
+Employee wage per day:160
+employee hours are:8
+Employee wage per day:160
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:8
+Employee wage per day:160
+employee hours are:0
+Employee wage per day:0
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+Total Employee wage:1360
+
+$ java empwagemethodusecase.java
+Welcome to Employee Wage Computation Program on Master Branch
+employee is absent
+
+=========================================================================================================

@@ -1,0 +1,99 @@
+
+    Employeeee wage computation problem
+
+
+public class Empwageusecase
+{
+ public static void main(String[] args)
+  {
+    final int IS_FULL_TIME=1;
+    final int IS_PART_TIME=2;
+    final int EMP_RATE_PER_HOUR=20;
+   final int NUM_OF_WORKING_DAYS=20;
+   final int MAX_HRS_IN_MONTH=100;
+    int empHrs=0,totalEmpHrs=0;
+    int empWage=0,totalEmpWage=0,totalworkingdays=0;
+  double empcheck=Math.floor(Math.random()*10)%2;
+  System.out.println("Welcome to Employee Wage Computation Program on Master Br>
+  if(empcheck == 1)
+   {
+   System.out.println("employee is present");
+    }
+else
+{
+  System.out.println("employee is absent");
+}
+while(totalEmpHrs<=MAX_HRS_IN_MONTH && totalworkingdays<NUM_OF_WORKING_DAYS)
+{
+totalworkingdays++;
+
+   double empcheck1=Math.floor(Math.random()*10)%3;
+    switch((int)empcheck1)
+{
+      case IS_FULL_TIME:
+        empHrs=8;
+         break;
+       case IS_PART_TIME:
+        empHrs=4;
+        break;
+    default:
+    empHrs=0;
+}
+   totalEmpHrs+=empHrs;
+   System.out.println("employee hours are:"+empHrs);
+    empWage=empHrs*EMP_RATE_PER_HOUR;
+    totalEmpWage=totalEmpWage+empWage;
+
+    System.out.println("Employee wage per day:"+empWage);
+     }
+    System.out.println("Total Employee wage:"+totalEmpWage);
+
+   }
+}
+OUTPUT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ java empwageusecase.java
+Welcome to Employee Wage Computation Program on Master Branch
+employee is present
+employee hours are:8
+Employee wage per day:160
+employee hours are:8
+Employee wage per day:160
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:8
+Employee wage per day:160
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:8
+Employee wage per day:160
+employee hours are:8
+Employee wage per day:160
+employee hours are:4
+Employee wage per day:80
+employee hours are:0
+Employee wage per day:0
+employee hours are:0
+Employee wage per day:0
+employee hours are:0
+Employee wage per day:0
+employee hours are:8
+Employee wage per day:160
+Total Employee wage:1360
+
+========================================================================================================================

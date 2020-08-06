@@ -1,0 +1,105 @@
+        EmployeeWageCompution with multipulcompany
+
+1..
+public class EmpWageforMultiCompany
+{
+        public static final int IS_PART_TIME=1;
+        public static final int IS_FULL_TIME=2;
+     public static int computeEmpWage(String company,int empWagePerHr,int numOfWorkingDays,int maxHoursPerMonth)
+      {
+        int empHrs=0,totalEmpHrs=0,totalWorkingDays=0;
+
+         while(totalEmpHrs<=maxHoursPerMonth && totalWorkingDays<numOfWorkingDays)
+                {
+                totalWorkingDays++;
+double empCheck=Math.floor(Math.random()*10)%3;
+                switch((int)empCheck)
+                 {
+                case IS_PART_TIME:
+                         empHrs=4;
+                         break;
+                case IS_FULL_TIME:
+                        empHrs=8;
+                        break;
+                default:
+                        empHrs=0;
+                }
+               totalEmpHrs+=empHrs;
+               System.out.println("Employee working hours: "+empHrs);
+          int empWagePerDay=empHrs*empWagePerHr;
+         System.out.println("employee salary is: "+empWagePerDay);
+              }
+           int totalEmpWage = totalEmpHrs*empWagePerHr;
+           System.out.println("Employee total wage per month "+company+"is:"+totalEmpWage);
+           return totalEmpWage;
+       }
+
+        public static void main(String[] args)
+        {
+    System.out.println("Welcome To Employee Wage Computation Program On Master Branch");
+  int IS_PRESENT=1;
+ double empattendance=Math.floor(Math.random()*10)%2;
+if(empattendance == IS_PRESENT)
+{
+System.out.println("Employee is present");
+ computeEmpWage("company-ABC",20,20,100);
+computeEmpWage("company-DEF",20,2,40);
+}
+else
+{
+System.out.println("Employee is Absent");
+}
+        }
+}
+
+
+OUTPUT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$ java empwageusecasemethodmultiple.java
+Welcome To Employee Wage Computation Program On Master Branch
+Employee is present
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 8
+employee salary is: 160
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 8
+employee salary is: 160
+Employee working hours: 0
+employee salary is: 0
+Employee working hours: 8
+employee salary is: 160
+Employee total wage per month company-ABCis:1040
+Employee working hours: 4
+employee salary is: 80
+Employee working hours: 4
+employee salary is: 80
+Employee total wage per month company-DEFis:160
